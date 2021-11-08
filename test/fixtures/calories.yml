@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingested_calories: 1
+  comment_ingested: MyText
+  burned_calories: 1
+  comment_burned: MyText
+  user: one
+
+two:
+  ingested_calories: 1
+  comment_ingested: MyText
+  burned_calories: 1
+  comment_burned: MyText
+  user: two

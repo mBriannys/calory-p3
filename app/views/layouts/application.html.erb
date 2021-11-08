@@ -11,6 +11,50 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <header>
+      <img class="logo" src="https://i.ibb.co/0X5QmwH/image-removebg-preview.png" alt="logo">
+      <nav>
+        <ul class="nav_links">
+          <li>
+            <%= link_to "Home" %>
+          </li>
+          <li>
+            <%=link_to "burned calories" %>
+          </li>
+          <li>
+            <%= link_to "new", calory_new_path	%>
+          </li>
+          <li>
+            <%= link_to "Yours Register", index_path %>
+          </li>
+          <li>
+            <h3>Hi <%= current_user.email %></h3>
+          </li>
+          <li>
+            <h3>Debes consumir: <%= User.find(current_user.id).try(:calculate_counter_calories) %> calorías</h3>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+          </li>
+      </nav>
+    </header>
+    <% else %>
+      <header>
+      <img class="logo" src="https://i.ibb.co/0X5QmwH/image-removebg-preview.png" alt="logo">
+      <nav>
+        <ul class="nav_links">
+          <li>
+            <%=link_to "Sign in", user_session_path %>
+          </li>
+          <li>
+            <%= link_to "Sign up",new_user_registration_path%>
+          </li>
+
+      </nav>
+    </header>
+    <h1>Calory!</h1>
+    <% end %>
     <%= yield %>
   </body>
 </html>
