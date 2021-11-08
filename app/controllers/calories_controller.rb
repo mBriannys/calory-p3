@@ -2,6 +2,7 @@ class CaloriesController < ApplicationController
   before_action :authenticate_user!
   def index
     @calories = Calory.where(user_id: current_user.id)
+    @calories = @calories.page params[:page]
   end
 
   def new

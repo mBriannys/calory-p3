@@ -1,4 +1,6 @@
 <h1>Yours Registers</h1>
+<%= pie_chart Calory.group(:ingested_calories, :burned_calories).count %>
+<%= paginate @calories, :window => 2 %>
 <div class="tableS">
   <div class="show">
     <table class="table table-dark table-striped">
