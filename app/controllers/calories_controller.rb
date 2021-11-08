@@ -1,8 +1,14 @@
 class CaloriesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @calories = Calory.where(user_id: current_user.id)
-    @calories = @calories.page params[:page]
+    if params[:search].blank?
+      @calories = Calory.where(user_id: current_user.id)
+      @calories = @calories.page params[:page]
+    else
+      word = params[:search].to_s
+      @calories = Calory.where(user_id: current_user.id).where("comment_burned like (?) OR comment_ingested like (?) OR date like (?)", "%#{word}%", "%#{word}%", "%#{word}%")
+      @calories = @calories.page params[:page]
+    end
   end
 
   def new
@@ -50,6 +56,11 @@ class CaloriesController < ApplicationController
      end
    end
   end
+
+  def search
+
+  end
+
   private
     def calory_params
         params.require(:calory).permit(:burned_calories, :comment_burned,  :ingested_calories, :comment_ingested)

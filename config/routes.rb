@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 #  patch 'calories', to: 'calories#update'
   get 'calories/:id/show', to: 'calories#show', as: 'show_calory'
   delete 'calory/:id', to: 'calories#destroy', as:'destroy_calory'
+  get 'calory/search', to: 'calories#search'
   root 'home#home'
 end
