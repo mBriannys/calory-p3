@@ -1,0 +1,28 @@
+<h1>Yours Registers</h1>
+<div class="tableS">
+  <div class="show">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td>Burned</td>
+          <td>Burned Comment </td>
+          <td>Ingested</td>
+          <td>Ingested Comment</td>
+          <td>Create</td>
+        </tr>
+      </thead>
+      <% @calories.each do |calory| %>
+          <tr>
+            <td><%= calory.burned_calories %></td>
+            <td><%= calory.comment_burned %></td>
+            <td><%= calory.ingested_calories %></td>
+            <td><%= calory.comment_ingested %></td>
+            <td><%= calory.created_at %></td>
+            <td><%= link_to "Edit", edit_calory_path(calory.id)%></td>
+            <td><%= link_to "Show", show_calory_path(calory.id)%></td>
+            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete%></td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

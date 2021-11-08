@@ -1,0 +1,25 @@
+<%= form_with(model: calory) do |form| %>
+  <div class="field">
+    <%= form.label :ingested_calories %><br />
+    <%= form.number_field :ingested_calories, autofocus: true, require: true%>
+  </div>
+
+  <div class="field", style:"width:100%">
+    <%= form.label :comment_ingested %> <br />
+    <%= form.text_area :comment_ingested, autofocus: true, require: true %>
+  </div>
+
+    <div class="field">
+      <%= form.label :burned_calories %><br />
+      <%= form.number_field :burned_calories, autofocus: true, require: true%>
+    </div>
+
+    <div class="field", style:"width:100%">
+      <%= form.label :comment_burned %> <br />
+      <%= form.text_area :comment_burned, autofocus: true, require: true %>
+    </div>
+
+    <div class="field">
+    <%= form.submit 'crear' %>
+  </div>
+<% end %>
