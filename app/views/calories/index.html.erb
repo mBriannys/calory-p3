@@ -26,7 +26,7 @@
             <td><%= calory.created_at %></td>
             <td><%= link_to "Edit", edit_calory_path(calory.id)%></td>
             <td><%= link_to "Show", show_calory_path(calory.id)%></td>
-            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete %></td>
+            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete, data: {confirm: 'Are you sure?'}%></td>
           </tr>
         <% end %>
     </table>

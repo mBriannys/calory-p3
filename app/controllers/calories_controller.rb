@@ -6,7 +6,7 @@ class CaloriesController < ApplicationController
       @calories = @calories.page params[:page]
     else
       word = params[:search].to_s
-      @calories = Calory.where(user_id: current_user.id).where("comment_burned like (?) OR comment_ingested like (?) OR date like (?)", "%#{word}%", "%#{word}%", "%#{word}%")
+      @calories = Calory.where(user_id: current_user.id).where("comment_burned like (?) OR comment_ingested like (?)", "%#{word}%", "%#{word}%")
       @calories = @calories.page params[:page]
     end
   end
@@ -18,6 +18,7 @@ class CaloriesController < ApplicationController
   def create
     @calory = Calory.new(calory_params)
     @calory.user_id = current_user.id
+    @calory.date = Date.today
     if @calory.valid?
       @calory.save
       flash[:success] = "Register yours calories!"
