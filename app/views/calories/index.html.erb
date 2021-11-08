@@ -1,5 +1,5 @@
 <h1>Yours Registers</h1>
-<%= pie_chart Calory.group(:ingested_calories, :burned_calories).count %>
+<%= line_chart Calory.group(:ingested_calories, :burned_calories).count %>
 <%= paginate @calories, :window => 2 %>
 <div class="tableS">
   <div class="show">
@@ -22,7 +22,7 @@
             <td><%= calory.created_at %></td>
             <td><%= link_to "Edit", edit_calory_path(calory.id)%></td>
             <td><%= link_to "Show", show_calory_path(calory.id)%></td>
-            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete%></td>
+            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete %></td>
           </tr>
         <% end %>
     </table>
