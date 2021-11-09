@@ -6,6 +6,9 @@ class CaloriesController < ApplicationController
       @calories = @calories.page params[:page]
     else
       word = params[:search].to_s
+      date_start = Date.parse(params[:dates])
+      date_end = Date.parse(params[:date])
+      @calories_date = Calory.where(user_id: current_user.id).where("date (?) BETWEEN (?) AND (?)", "%#{date_start}%", "%#{date_end}%")
       @calories = Calory.where(user_id: current_user.id).where("comment_burned like (?) OR comment_ingested like (?)", "%#{word}%", "%#{word}%")
       @calories = @calories.page params[:page]
     end

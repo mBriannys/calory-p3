@@ -1,13 +1,24 @@
 <h1>Yours Registers</h1>
 <%= line_chart Calory.group(:ingested_calories).count %>
-<div class="tableS">
+<div class="table-container">
   <%= form_tag(index_path, method: :get) do %>
   <div class="show">
-    <%= search_field_tag :search, params[:params], placeholder:"comment burned", class: "form-control"%>
-    <div class="input-group-btn">
-      <%= button_tag "Search", class: 'btn btn-info glyphicon glypicon-search', comment_burned: nil, date: nil%>
+    <div class="field">
+      <%= search_field_tag :search, params[:params], placeholder:"comment burned", class: "form-control", class: 'input'%>
+      <%= button_tag "Search", class: 'btn btn-info glyphicon glypicon-search', comment_burned: nil, class:'button is-info' %>
     </div>
-    <table class="table table-dark table-striped">
+  </div>
+  <% end %>
+<%= form_tag(index_path, method: :get) do %>
+  <div class="show">
+    <div class="field">
+      <%= date_field :dates, nil, placeholder: "Start date", class: 'input' %>
+      <%= date_field :date, nil, placeholder: "End date", class: 'input' %>
+      <%= button_tag "Search", class: 'btn btn-info glyphicon glypicon-search', date: nil, class:'button is-info' %>
+    </div>
+  </div>
+  <% end %>
+    <table class="table is-primary is-striped is-hoverable is-fullwidth">
       <thead>
         <tr>
           <td>Burned</td>
@@ -15,6 +26,9 @@
           <td>Ingested</td>
           <td>Ingested Comment</td>
           <td>Create</td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </thead>
       <% @calories.each do |calory| %>
@@ -24,13 +38,12 @@
             <td><%= calory.ingested_calories %></td>
             <td><%= calory.comment_ingested %></td>
             <td><%= calory.created_at %></td>
-            <td><%= link_to "Edit", edit_calory_path(calory.id)%></td>
-            <td><%= link_to "Show", show_calory_path(calory.id)%></td>
-            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete, data: {confirm: 'Are you sure?'}%></td>
+            <td><%= link_to "Edit", edit_calory_path(calory.id), class: 'button is-link is-light is-small'%></td>
+            <td><%= link_to "Show", show_calory_path(calory.id), class: 'button is-info is-light is-small'%></td>
+            <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button is-danger is-light is-small'%></td>
           </tr>
         <% end %>
     </table>
-  </div>
-  <% end %>
+
 </div>
 <%= paginate @calories, :window => 2 %>
