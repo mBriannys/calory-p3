@@ -1,3 +1,6 @@
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <div class="container has-text-centered">
 <h1>Yours Registers</h1>
 <%= line_chart Calory.group(:ingested_calories).where(user_id: current_user.id).sum(:burned_calories) %>

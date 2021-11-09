@@ -24,7 +24,7 @@ class CaloriesController < ApplicationController
     @calory.date = Date.today
     if @calory.valid?
       @calory.save
-      flash[:success] = "Register yours calories!"
+      flash[:success] = "Successfully calorie log"
       redirect_to root_path
     end
   end

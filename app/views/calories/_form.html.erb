@@ -1,10 +1,14 @@
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<%= form_with(model: calory) do |form| %>
 <section class="container">
   <div class="columns is-multiline">
     <div class="column is-8 is-offset-2 register">
       <div class="columns">
         <div class="column right has-text-centered">
           <form>
-            <%= form_with(model: calory) do |form| %>
+
               <div class="field">
                 <%= form.label :ingested_calories, class: 'label' %>
                 <div class="control">
@@ -36,9 +40,10 @@
                 <div class="field">
                 <%= form.submit 'ok', class: 'button is-primary'%>
               </div>
-            <% end %>
+
           </form>
         </div>
     </div>
   </div>
 </section>
+<% end %>
