@@ -37,7 +37,7 @@
             <td><%= calory.comment_burned %></td>
             <td><%= calory.ingested_calories %></td>
             <td><%= calory.comment_ingested %></td>
-            <td><%= calory.created_at %></td>
+            <td><%= calory.date %></td>
             <td><%= link_to "Edit", edit_calory_path(calory.id), class: 'button is-link is-light is-small'%></td>
             <td><%= link_to "Show", show_calory_path(calory.id), class: 'button is-info is-light is-small'%></td>
             <td><%= link_to "Destroy", destroy_calory_path(calory.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button is-danger is-light is-small'%></td>
