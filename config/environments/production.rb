@@ -96,14 +96,14 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
-    host = 'calory-p3.herokuapp.com'
+    host = 'https://calory-p3.herokuapp.com'
     config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
       :address => 'smtp.sendgrid.net',
       :port => '587',
       :authentication => :plain,
-      :user_name => Rails.application.credentials.dig(:user_name),
-      :password => Rails.application.credentials.dig(:password),
+      :user_name => ENV['app236907199@heroku.com'],
+      :password => ENV['9oqamwon0734'],
       :domain => 'herokuapp.com',
       :enable_starttls_auto => true
     }
