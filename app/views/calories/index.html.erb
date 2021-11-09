@@ -1,20 +1,12 @@
+<input type="text" class="daterange">
 <h1>Yours Registers</h1>
-<%= line_chart Calory.group(:ingested_calories).count %>
+<%= line_chart Calory.group(:ingested_calories).sum(:burned_calories) %>
 <div class="table-container">
   <%= form_tag(index_path, method: :get) do %>
   <div class="show">
     <div class="field">
       <%= search_field_tag :search, params[:params], placeholder:"comment burned", class: "form-control", class: 'input'%>
       <%= button_tag "Search", class: 'btn btn-info glyphicon glypicon-search', comment_burned: nil, class:'button is-info' %>
-    </div>
-  </div>
-  <% end %>
-<%= form_tag(index_path, method: :get) do %>
-  <div class="show">
-    <div class="field">
-      <%= date_field :dates, nil, placeholder: "Start date", class: 'input' %>
-      <%= date_field :date, nil, placeholder: "End date", class: 'input' %>
-      <%= button_tag "Search", class: 'btn btn-info glyphicon glypicon-search', date: nil, class:'button is-info' %>
     </div>
   </div>
   <% end %>
@@ -44,6 +36,11 @@
           </tr>
         <% end %>
     </table>
-
 </div>
 <%= paginate @calories, :window => 2 %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('input[class="daterange"]').daterangepicker();
+  });
+</script>
