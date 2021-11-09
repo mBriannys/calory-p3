@@ -1,6 +1,6 @@
 <div class="container has-text-centered">
 <h1>Yours Registers</h1>
-<%= line_chart Calory.group(:ingested_calories).sum(:burned_calories) %>
+<%= line_chart Calory.group(:ingested_calories).where(user_id: current_user.id).sum(:burned_calories) %>
 <div class="show">
   <%= form_tag(index_path, method: :get) do %>
     <div class="control has-icons-left has-icons-right">
