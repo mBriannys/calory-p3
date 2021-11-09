@@ -1,33 +1,44 @@
-<%= form_with(model: calory) do |form| %>
-  <div class="field">
-    <%= form.label :ingested_calories, class: 'label' %>
-    <div class="control">
-        <%= form.number_field :ingested_calories, autofocus: true, class: 'input'%>
+<section class="container">
+  <div class="columns is-multiline">
+    <div class="column is-8 is-offset-2 register">
+      <div class="columns">
+        <div class="column right has-text-centered">
+          <form>
+            <%= form_with(model: calory) do |form| %>
+              <div class="field">
+                <%= form.label :ingested_calories, class: 'label' %>
+                <div class="control">
+                    <%= form.number_field :ingested_calories, autofocus: true, class: 'input'%>
+                </div>
+              </div>
+
+              <div class="field", style:"width:100%">
+                <%= form.label :comment_ingested, class: 'field' %>
+                <div class="control">
+                  <%= form.text_area :comment_ingested, autofocus: true, class: 'input' %>
+                </div>
+              </div>
+
+                <div class="field">
+                  <%= form.label :burned_calories, class: 'label' %>
+                  <div class="control">
+                    <%= form.number_field :burned_calories, autofocus: true, class: 'input'%>
+                  </div>
+                </div>
+
+                <div class="field", style:"width:100%">
+                  <%= form.label :comment_burned, class: 'label' %>
+                  <div class="control">
+                    <%= form.text_area :comment_burned, autofocus: true, class: 'input' %>
+                  </div>
+                </div>
+
+                <div class="field">
+                <%= form.submit 'ok', class: 'button is-primary'%>
+              </div>
+            <% end %>
+          </form>
+        </div>
     </div>
   </div>
-
-  <div class="field", style:"width:100%">
-    <%= form.label :comment_ingested, class: 'field' %>
-    <div class="control">
-      <%= form.text_area :comment_ingested, autofocus: true, class: 'input' %>
-    </div>
-  </div>
-
-    <div class="field">
-      <%= form.label :burned_calories, class: 'label' %>
-      <div class="control">
-        <%= form.number_field :burned_calories, autofocus: true, class: 'input'%>
-      </div>
-    </div>
-
-    <div class="field", style:"width:100%">
-      <%= form.label :comment_burned, class: 'label' %>
-      <div class="control">
-        <%= form.text_area :comment_burned, autofocus: true, class: 'input' %>
-      </div>
-    </div>
-
-    <div class="field">
-    <%= form.submit 'crear', class: 'button is-primary'%>
-  </div>
-<% end %>
+</section>
