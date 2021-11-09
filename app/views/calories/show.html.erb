@@ -1,7 +1,43 @@
-<h1>Show Calory</h1>
 <div class="table">
-  <div class="show">
-    <h4><strong>Ingested Calories: <%= @calory.ingested_calories%> </strong></h4>
+  <div class="show has-text-centered">
+    <h1>Show Calory</h1>
   </div>
 </div>
- <%= link_to 'back', root_path%>
+
+<section class="info-tiles">
+ <div class="tile is-ancestor has-text-centered">
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+            <p class="title"><%= @calory.ingested_calories %> calories</p>
+            <p class="subtitle">Ingested Calories</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= @calory.comment_ingested %></p>
+             <p class="subtitle">Comment Ingested</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= @calory.burned_calories %> calories </p>
+             <p class="subtitle">Burned calories</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= @calory.comment_burned %></p>
+             <p class="subtitle">Comment burned</p>
+         </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title"><%= @calory.date %></p>
+            <p class="subtitle">Date of consume</p>
+        </article>
+   </div>
+  </div>
+  <li class="button is-danger is-light">
+    <%= link_to "Back",index_path%>
+  </li>
+</section>

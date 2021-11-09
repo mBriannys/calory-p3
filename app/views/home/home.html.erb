@@ -1,0 +1,28 @@
+<section class="info-tiles">
+ <div class="tile is-ancestor has-text-centered">
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+            <p class="title"><%= current_user.age %> years old</p>
+            <p class="subtitle">Age</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= current_user.weight %> kg</p>
+             <p class="subtitle">Weight</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= current_user.height %> cm</p>
+             <p class="subtitle">Height</p>
+         </article>
+     </div>
+     <div class="tile is-parent">
+         <article class="tile is-child box">
+             <p class="title"><%= current_user.calculate_counter_calories %> calories</p>
+             <p class="subtitle">You should consume</p>
+         </article>
+    </div>
+  </div>
+</section>
